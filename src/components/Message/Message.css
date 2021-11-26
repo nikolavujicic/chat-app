@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: space-between;
     max-width: 70%;
-    /* min-height: 70px; */
     background-color: #FFFFFF;
     border: 2px solid #C9CED1;
     border-radius: 4px;
@@ -34,6 +33,4 @@
 .author-message{
     background-color: #FCF6C3;
     margin-left: auto;
-    /* padding-right: 8px;
-    padding-bottom: 4px; */
 }
