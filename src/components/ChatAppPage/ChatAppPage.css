@@ -1,0 +1,13 @@
+.chat-app{
+    box-sizing: border-box;
+    /* position: relative; */
+    max-width: 900px;
+    min-width: 100px;
+    height:100vh;
+    margin: auto;
+    /* display: flex;
+    flex-direction: column; */
+    /* background-image: url('../../src//assets/Body\ BG.png'); */
+    background-image: url('../../assets/Body\ BG.png');
+    background-size: contain;
+  }
