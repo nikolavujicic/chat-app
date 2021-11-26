@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Message from 'components/Message/Message'
+import Footer from 'components/Footer/Footer'
 import { http } from 'services/http'
 import './ChatAppPage.css';
-const USER_NAME = 'Nick'
+const USER_NAME = 'Mike'
 
 const { REACT_APP_TOKEN } = process.env
 const ChatAppPage = () => {
@@ -24,12 +25,26 @@ const ChatAppPage = () => {
         setMessages(res.data.reverse())
     }
 
+    const postMessage = async (message) => {
+        setIsPosting(true)
+        const data = { "message": message, "author": USER_NAME }
+        const res = await http.post('', data)
+        console.log(res.data)
+        setIsPosting(false)
+        console.log(res.data)
+        setMessages([res.data, ...messages])
+    }
+
+    const onSubmit = (data) => {
+        postMessage(data.message)
+    }
 
     return (<>
         <div className='chat-app'>
             <div className='messages-window'>
                 {messages.map(data => <Message data={data} isAuthor={data.author === USER_NAME} key={data._id} />)}
             </div>
+            <Footer onSubmit={onSubmit} isPosting={isPosting} />
         </div>
     </>
     );
