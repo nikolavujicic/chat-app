@@ -10,4 +10,18 @@
     /* background-image: url('../../src//assets/Body\ BG.png'); */
     background-image: url('../../assets/Body\ BG.png');
     background-size: contain;
+}
+
+.messages-window{
+    border: 1px solid red;
+    max-width: 640px;
+    margin: auto;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column-reverse;
+  
+    box-sizing: border-box;
+    /* padding: 0 7% 0 7%; */
   }
