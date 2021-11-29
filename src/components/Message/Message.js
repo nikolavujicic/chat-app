@@ -1,4 +1,4 @@
-
+import React from 'react'
 import moment from 'moment'
 import './Message.css'
 
@@ -11,7 +11,7 @@ const Message = ({ data, isAuthor }) => {
     return <div className='message-wrapper'>
         <div className={`message ${isAuthor ? 'author-message' : ''}`}>
             {!isAuthor && <div>{author}</div>}
-            <div className={`message-text ${isAuthor && 'message-text-author'}`}>{message}</div>
+            <div className={`message-text ${isAuthor && 'message-text-author'}`}>{message?.inputMessage ? message.inputMessage : message}</div>
             <div className={`${isAuthor ? 'message-date' : ''}`}>{messageTime}</div>
         </div>
     </div>

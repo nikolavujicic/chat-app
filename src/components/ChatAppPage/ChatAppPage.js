@@ -3,10 +3,12 @@ import Message from 'components/Message/Message'
 import Footer from 'components/Footer/Footer'
 import Loader from 'components/Loader/Loader'
 import { http } from 'services/http'
+import ChatPooling from 'components/ChatPooling/ChatPooling'
 import './ChatAppPage.css';
 const USER_NAME = 'Nick'
 
 const { REACT_APP_TOKEN } = process.env
+
 const ChatAppPage = () => {
     const [messages, setMessages] = useState([])
     const [loading, setLoading] = useState(false)
@@ -15,7 +17,6 @@ const ChatAppPage = () => {
     useEffect(() => {
         fetchMessages()
     }, [])
-
 
     const fetchMessages = async () => {
         setLoading(true)
@@ -32,6 +33,10 @@ const ChatAppPage = () => {
         setIsPosting(false)
     }
 
+    const onSuccessPooling = (data) => {
+        setMessages(data)
+    }
+
     const onSubmit = (data) => {
         postMessage(data.message)
     }
@@ -42,6 +47,7 @@ const ChatAppPage = () => {
             <div className='messages-window'>
                 {messages.map(data => <Message data={data} isAuthor={data.author === USER_NAME} key={data._id} />)}
             </div>
+            <ChatPooling onSuccessPooling={onSuccessPooling} />
             <Footer onSubmit={onSubmit} isPosting={isPosting} />
         </div>
     </>

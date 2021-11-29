@@ -1,3 +1,4 @@
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import loader from 'assets/spinner.gif'
 import './Footer.css'
