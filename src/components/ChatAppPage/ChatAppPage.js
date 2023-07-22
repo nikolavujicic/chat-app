@@ -5,7 +5,7 @@ import Loader from 'components/Loader/Loader'
 import { http } from 'services/http'
 import ChatPooling from 'components/ChatPooling/ChatPooling'
 import './ChatAppPage.css';
-const USER_NAME = 'NickK'
+const USER_NAME = 'Nick'
 
 const { REACT_APP_TOKEN } = process.env
 
